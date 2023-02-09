@@ -2,7 +2,7 @@
 // let b = a++;
 // let c = ++a;
 // // what is the value of a, b, and c?
-// console.log(`This is a: ${a}. This is b: ${b}. This is c: ${c}.`)
+//console.log(`This is a: ${a}. This is b: ${b}. This is c: ${c}.`)
 //
 // let d = "hello";
 // let e = false;
@@ -21,11 +21,11 @@
 //
 // console.log(`This is the fourth exercise: ${price}.`)
 //
-// // let price2 = "2.7";
-// // price2 = price2.toFixed(2);
-// //
-// // console.log(`This is the fifth exercise: ${price2}.`)
+// let price2 = "2.7";
+// price2 = price2.toFixed(2);
 //
+// console.log(`This is the fifth exercise: ${price2}.`)
+
 // //console.log(isNaN(0))
 //
 // //console.log(isNaN(1))
