@@ -16,11 +16,11 @@
 // perplexed + 2;
 // console.log(`This is the third exercise: ${perplexed}.`)
 //
-// let price = 2.7;
-// price = price.toFixed (2);
-//
-// console.log(`This is the fourth exercise: ${price}.`)
-//
+/*let price = 2.7;
+price = price.toFixed (2);
+
+console.log(`This is the fourth exercise: ${price}.`)
+*/
 // let price2 = "2.7";
 // price2 = price2.toFixed(2);
 //
@@ -94,13 +94,16 @@
 // console.log(sample.indexOf(`C`))
 // console.log(sample.substring(6, 12))
 
-// let theLittleMermaid = 3
-// let brotherBear = 5
-// let hercules = 1
-// let pricePerDay = 3
-// let totalPrice = (theLittleMermaid + brotherBear + hercules) * pricePerDay
+// let theLittleMermaid = 3;
+// let brotherBear = 5;
+// let hercules = 1;
+// let pricePerDay = 3;
+// let totalPrice = (theLittleMermaid + brotherBear + hercules) * pricePerDay;
 //
 // console.log(totalPrice)
+//
+//
+//
 //
 // let google = 400 * 6;
 // let amazon = 380 * 4;
@@ -109,10 +112,9 @@
 //
 // console.log(totalPay);
 
-// schoolClass != full
-// studentSchedule != classSchedule
+// schoolClass != full && studentSchedule != classSchedule
 
-//(numberOfItems > 2 && (offerExpired = false) || (premiumMember && (offerExpired = false));
+//(numberOfItems > 2 || premiumMember) && !offerExpired;
 
 let username = 'codeup';
 let password = 'notastrongpassword';
