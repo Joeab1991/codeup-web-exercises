@@ -72,6 +72,10 @@ console.log(isTwo(random))
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
+const calculateTip = (num, num2) => num * num2
+
+console.log(calculateTip(.20, 25.50))
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
