@@ -110,9 +110,8 @@ The total amount you should pay is: ${formatter.format(billTotal + tipAmount)}`)
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
 
-const applyDiscount = (num, num2) => {
-    let discountAmmount = num * num2;
-    return num - discountAmmount
-}
+let price = parseFloat(prompt(`Enter the pre discount price.`));
+let discountPercent = parseFloat(prompt(`What percentage is the discount?`));
+const applyDiscount = (num, num2) => num - (num * num2);
 
-console.log(applyDiscount(100, .2))
+alert(`Your total discounted price comes to ${formatter.format(applyDiscount(price, discountPercent))}.`);
