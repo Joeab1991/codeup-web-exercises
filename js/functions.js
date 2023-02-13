@@ -32,7 +32,7 @@ console.log(helloMessage);
  * console.
  */
 
-let myName = `Joe`;
+const myName = `Joe`;
 
 console.log(sayHello(myName));
 
@@ -72,7 +72,7 @@ console.log(isTwo(random));
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
-const calculateTip = (num, num2) => num * num2;
+const calculateTip = (tipPercent, billTotal) => parseFloat(tipPercent) * parseFloat(billTotal);
 
 console.log(calculateTip(.20, 25.50));
 
@@ -84,7 +84,7 @@ console.log(calculateTip(.20, 25.50));
  */
 
 let billTotal = parseFloat(prompt(`Enter the total bill here.`));
-let tipPercent = parseFloat(prompt(`What percentage would you like to tip?`));
+let tipPercent = parseFloat(prompt(`What % would you like to tip?`)) / 100;
 let tipAmount = calculateTip(billTotal, tipPercent);
 
 const formatter = new Intl.NumberFormat('en-US', {
@@ -112,6 +112,6 @@ The total amount you should pay is: ${formatter.format(billTotal + tipAmount)}`)
 
 let price = parseFloat(prompt(`Enter the pre discount price.`));
 let discountPercent = parseFloat(prompt(`What percentage is the discount?`));
-const applyDiscount = (num, num2) => num - (num * num2);
+const applyDiscount = (price, discount) => price - (price * discount);
 
 alert(`Your total discounted price comes to ${formatter.format(applyDiscount(price, discountPercent))}.`);
