@@ -1,4 +1,4 @@
-const isEvenOrOdd = (num) => num % 2 === 0 ? `even` : `odd`;
+const isEvenOrOdd = (num) => num % 2 === 0 ? `Your number is even` : `Your number is odd`;
 //console.log(isEvenOrOdd(0))
 const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',

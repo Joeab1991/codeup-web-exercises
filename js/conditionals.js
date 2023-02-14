@@ -22,19 +22,19 @@
  * console.logging the function's return value
  */
 
-const analyzeColor = color => {
-	if (color === `blue`
-	|| color === `red`
-	|| color === `yellow`){
-		alert(`${color} is a primary color.`);
-	} else if (color === `purple`
-	|| color === `green`
-	|| color === `orange`){
-		alert(`${color} is a secondary color.`);
-	} else {
-		alert(`I don't know anything about ${color}.`);
-	}
-}
+// const analyzeColor = color => {
+// 	if (color === `blue`
+// 	|| color === `red`
+// 	|| color === `yellow`){
+// 		return(`${color} is a primary color.`);
+// 	} else if (color === `purple`
+// 	|| color === `green`
+// 	|| color === `orange`){
+// 		return(`${color} is a secondary color.`);
+// 	} else {
+// 		return(`I don't know anything about ${color}.`);
+// 	}
+// }
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -55,28 +55,23 @@ let randomColor = colors[Math.floor(Math.random() * colors.length)];
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
-
-switch (randomColor) {
-	case `blue` :
-		alert(`${randomColor} is a primary color.`);
-		break;
-	case `red` :
-		alert(`${randomColor} is a primary color.`);
-		break;
-	case `yellow` :
-		alert(`${randomColor} is a primary color.`);
-		break;
-	case `purple` :
-		alert(`${randomColor} is a secondary color.`);
-		break;
-	case `green` :
-		alert(`${randomColor} is a secondary color.`);
-		break;
-	case `orange` :
-		alert(`${randomColor} is a secondary color.`);
-		break;
-	default:
-		alert(`I don't know anything about ${randomColor}.`)
+const analyzeColor = (color) => {
+	switch (color) {
+		case `blue` :
+			return(`${color} is a primary color.`);
+		case `red` :
+			return(`${color} is a primary color.`);
+		case `yellow` :
+			return(`${color} is a primary color.`);
+		case `purple` :
+			return(`${color} is a secondary color.`);
+		case `green` :
+			return(`${color} is a secondary color.`);
+		case `orange` :
+			return(`${color} is a secondary color.`);
+		default:
+			return(`I don't know anything about ${color}.`)
+	}
 }
 
 
@@ -87,9 +82,9 @@ switch (randomColor) {
  * function to show it to the user.
  */
 
-let userColor = prompt(`Enter a color...`);
+//let userColor = prompt(`Enter a color...`);
 
-analyzeColor(userColor.toLowerCase());
+//alert(analyzeColor(userColor.toLowerCase()));
 /* ########################################################################## */
 
 /**
@@ -112,31 +107,24 @@ analyzeColor(userColor.toLowerCase());
  * return value.
  */
 
-const calculateTotal = (luckyNum, total) => {
-	switch (luckyNumber) {
-		case 0 :
-			return(bill);
-			//break;
-		case 1 :
-			return(bill - (bill * .1));
-			//break;
-		case 2 :
-			return(bill - (bill * .25));
-			//break;
-		case 3 :
-			return(bill - (bill * .35));
-			//break;
-		case 4 :
-			return(bill - (bill * .50));
-			//break;
-		case 5 :
-			return(0);
-			//break;
-		default:
-			alert(`That's not a lucky number.`)
-
-	}
-}
+// const calculateTotal = (luckyNum, total) => {
+// 	switch (luckyNumber) {
+// 		case 0 :
+// 			return(bill);
+// 		case 1 :
+// 			return(bill - (bill * .1));
+// 		case 2 :
+// 			return(bill - (bill * .25));
+// 		case 3 :
+// 			return(bill - (bill * .35));
+// 		case 4 :
+// 			return(bill - (bill * .50));
+// 		case 5 :
+// 			return(0);
+// 		default:
+// 			return(`That's not a lucky number.`)
+// 	}
+// }
 
 
 /**
@@ -148,12 +136,12 @@ const calculateTotal = (luckyNum, total) => {
  * price before the discount was, and what their price after the discount is.
  */
 //Generate a random number between 0 and 6
-let luckyNumber = Math.floor(Math.random() * 6);
-
-let bill = parseFloat(prompt(`What was your total bill?`));
-alert(`Your lucky number is: ${luckyNumber}!`);
-alert(`Your price before the discount was: ${bill.toLocaleString("en-US", {style:"currency", currency:"USD"})}`);
-alert(`Your price after discount is: ${calculateTotal(luckyNumber, bill).toLocaleString("en-US", {style:"currency", currency:"USD"})}!`);
+// let luckyNumber = Math.floor(Math.random() * 6);
+//
+// let bill = parseFloat(prompt(`What was your total bill?`));
+// alert(`Your lucky number is: ${luckyNumber}!`);
+// alert(`Your price before the discount was: ${formatter.format(bill)}`);
+// alert(`Your price after discount is: ${formatter.format(calculateTotal(luckyNumber, bill))}!`);
 
 /**
  * TODO:
@@ -176,29 +164,19 @@ alert(`Your price after discount is: ${calculateTotal(luckyNumber, bill).toLocal
 
 let wantNumber = confirm(`Would you like to enter a number?`)
 
-if (wantNumber === true){
-	const userNumber = parseFloat(prompt(`Enter your number.`));
-		if (typeof userNumber === `string` || isNaN(parseFloat(userNumber))){
-			alert(`That is not a number!`);
+const numInfo = num => {
+	if (num === true) {
+		const userNumber = parseFloat(prompt(`Enter your number.`));
+		if (typeof userNumber === `string` || isNaN(parseFloat(userNumber))) {
+			return(`That is not a number!`);
 		} else {
-			const evenOrOdd = num => num % 2 === 0 ? `even` : `odd`;
-			alert(`Your number is ${evenOrOdd(userNumber)}.`);
-			const sum100 = num => parseFloat(userNumber + 100);
-			alert(`Your number plus 100 is ${sum100(userNumber)}`);
-
-			const isPosOrNeg = num => {
-				num >= 0 ? alert(`Your number is positive`) : alert(`Your number is negative`)
-			}
-			isPosOrNeg(userNumber)
-			//Before refactor
-			// const isPosOrNeg = num => {
-			// 	if (num >= 0) {
-			// 		return `positive`;
-			// 	} else {
-			// 		return `negative`;
-			// 	}
-			// }
-			//alert(`Your number is ${isPosOrNeg(userNumber)}`);
+			const sum100 = num => `Your number plus 100 is ${parseFloat(num + 100)}`;
+			const isPosOrNeg = num => num >= 0 ? `Your number is positive` : `Your number is negative`;
+			alert(isEvenOrOdd(userNumber));
+			alert(sum100(userNumber));
+			alert(isPosOrNeg(userNumber));
 		}
-} else {
+	}
 }
+
+(numInfo(wantNumber))
