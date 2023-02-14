@@ -38,7 +38,7 @@
 //
 // console.log(reverseString(`bigfoot`))
 
-//let flavor = prompt(`What's your preferred Ice Cream Flavor?`);
+let flavor = prompt(`What's your preferred Ice Cream Flavor?`);
 
 // if (flavor === `chocolate`){
 // 	alert(`One chocolate coming up!`);
@@ -60,16 +60,16 @@
 // 		alert(`We don't have that flavor.`);
 // }
 
-// const serveIceCream = (flavor) => {
-// 	if (flavor === `chocolate`
-// 		|| flavor === `vanilla`
-// 		|| flavor === `strawberry`){
-// 		alert(`One ${flavor} coming up!`);
-// 	} else {
-// 		alert(`We don't have that flavor.`);
-// 	}
-// }
-// serveIceCream(prompt(`What's your preferred Ice Cream Flavor?`).toLowerCase());
+const serveIceCream = (flavor) => {
+	if (flavor === `chocolate`
+		|| flavor === `vanilla`
+		|| flavor === `strawberry`){
+		alert(`One ${flavor} coming up!`);
+	} else {
+		alert(`We don't have that flavor.`);
+	}
+}
+serveIceCream(prompt(`What's your preferred Ice Cream Flavor?`).toLowerCase());
 
 const divisibleByFive = num => {
 	if (num % 5 === 0){
