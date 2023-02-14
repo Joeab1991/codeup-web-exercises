@@ -156,11 +156,13 @@ this is the end */
 
 //(numberOfItems > 2 && (offerExpired = false) || (premiumMember && (offerExpired = false));
 
-let username = 'codeup';
-let password = 'notastrongpassword';
-let goodCombo = (5 <= password.length && password.length <= 20)
-    && (password.indexOf(` `) !== 0 && password.indexOf(` `) !== password.length - 1)
-    && (username.indexOf(` `) !== 0 && username.indexOf(` `) !== username.length - 1)
-    && (password.indexOf(username) === -1)
+// let username = 'codeup';
+// let password = 'notastrongpassword';
+// let goodCombo = (5 <= password.length && password.length <= 20)
+//     && (password.indexOf(` `) !== 0 && password.indexOf(` `) !== password.length - 1)
+//     && (username.indexOf(` `) !== 0 && username.indexOf(` `) !== username.length - 1)
+//     && (password.indexOf(username) === -1)
+//
+// console.log(goodCombo)
 
-console.log(goodCombo)
+
