@@ -56,28 +56,28 @@ let randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
 
-// switch (randomColor) {
-// 	case `blue` :
-// 		alert(`${randomColor} is a primary color.`);
-// 		break;
-// 	case `red` :
-// 		alert(`${randomColor} is a primary color.`);
-// 		break;
-// 	case `yellow` :
-// 		alert(`${randomColor} is a primary color.`);
-// 		break;
-// 	case `purple` :
-// 		alert(`${randomColor} is a secondary color.`);
-// 		break;
-// 	case `green` :
-// 		alert(`${randomColor} is a secondary color.`);
-// 		break;
-// 	case `orange` :
-// 		alert(`${randomColor} is a secondary color.`);
-// 		break;
-// 	default:
-// 		alert(`I don't know anything about ${randomColor}.`)
-// }
+switch (randomColor) {
+	case `blue` :
+		alert(`${randomColor} is a primary color.`);
+		break;
+	case `red` :
+		alert(`${randomColor} is a primary color.`);
+		break;
+	case `yellow` :
+		alert(`${randomColor} is a primary color.`);
+		break;
+	case `purple` :
+		alert(`${randomColor} is a secondary color.`);
+		break;
+	case `green` :
+		alert(`${randomColor} is a secondary color.`);
+		break;
+	case `orange` :
+		alert(`${randomColor} is a secondary color.`);
+		break;
+	default:
+		alert(`I don't know anything about ${randomColor}.`)
+}
 
 
 /**
@@ -148,12 +148,12 @@ const calculateTotal = (luckyNum, total) => {
  * price before the discount was, and what their price after the discount is.
  */
 //Generate a random number between 0 and 6
-// let luckyNumber = Math.floor(Math.random() * 6);
-//
-// let bill = parseFloat(prompt(`What was your total bill?`));
-// alert(`Your lucky number is: ${luckyNumber}!`);
-// alert(`Your price before the discount was: ${bill.toLocaleString("en-US", {style:"currency", currency:"USD"})}`);
-// alert(`Your price after discount is: ${calculateTotal(luckyNumber, bill).toLocaleString("en-US", {style:"currency", currency:"USD"})}!`);
+let luckyNumber = Math.floor(Math.random() * 6);
+
+let bill = parseFloat(prompt(`What was your total bill?`));
+alert(`Your lucky number is: ${luckyNumber}!`);
+alert(`Your price before the discount was: ${bill.toLocaleString("en-US", {style:"currency", currency:"USD"})}`);
+alert(`Your price after discount is: ${calculateTotal(luckyNumber, bill).toLocaleString("en-US", {style:"currency", currency:"USD"})}!`);
 
 /**
  * TODO:
@@ -174,31 +174,31 @@ const calculateTotal = (luckyNum, total) => {
  * HINT: The way we prompt for a value could be improved
  */
 
-// let wantNumber = confirm(`Would you like to enter a number?`)
-//
-// if (wantNumber === true){
-// 	const userNumber = parseFloat(prompt(`Enter your number.`));
-// 		if (typeof userNumber === `string` || isNaN(parseFloat(userNumber))){
-// 			alert(`That is not a number!`);
-// 		} else {
-// 			const evenOrOdd = num => num % 2 === 0 ? `even` : `odd`;
-// 			alert(`Your number is ${evenOrOdd(userNumber)}.`);
-// 			const sum100 = num => parseFloat(userNumber + 100);
-// 			alert(`Your number plus 100 is ${sum100(userNumber)}`);
-//
-// 			const isPosOrNeg = num => {
-// 				num >= 0 ? alert(`Your number is positive`) : alert(`Your number is negative`)
-// 			}
-// 			isPosOrNeg(userNumber)
-// 			//Before refactor
-// 			// const isPosOrNeg = num => {
-// 			// 	if (num >= 0) {
-// 			// 		return `positive`;
-// 			// 	} else {
-// 			// 		return `negative`;
-// 			// 	}
-// 			// }
-// 			//alert(`Your number is ${isPosOrNeg(userNumber)}`);
-// 		}
-// } else {
-// }
+let wantNumber = confirm(`Would you like to enter a number?`)
+
+if (wantNumber === true){
+	const userNumber = parseFloat(prompt(`Enter your number.`));
+		if (typeof userNumber === `string` || isNaN(parseFloat(userNumber))){
+			alert(`That is not a number!`);
+		} else {
+			const evenOrOdd = num => num % 2 === 0 ? `even` : `odd`;
+			alert(`Your number is ${evenOrOdd(userNumber)}.`);
+			const sum100 = num => parseFloat(userNumber + 100);
+			alert(`Your number plus 100 is ${sum100(userNumber)}`);
+
+			const isPosOrNeg = num => {
+				num >= 0 ? alert(`Your number is positive`) : alert(`Your number is negative`)
+			}
+			isPosOrNeg(userNumber)
+			//Before refactor
+			// const isPosOrNeg = num => {
+			// 	if (num >= 0) {
+			// 		return `positive`;
+			// 	} else {
+			// 		return `negative`;
+			// 	}
+			// }
+			//alert(`Your number is ${isPosOrNeg(userNumber)}`);
+		}
+} else {
+}
