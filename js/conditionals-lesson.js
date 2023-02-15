@@ -101,18 +101,21 @@
 //
 // 	This `getToDestination` should not return any value, but rather console log based on the conditions met.
 //
-const getToDestination = (age, isInsured, hasCar, canGetRideShare) => {
+const canGetRideshare = (driversAvailable, walletFull) => (driversAvailable && walletFull === true);
+
+let rideshareAble = canGetRideshare(false, true);
+const getToDestination = (age, isInsured, hasCar) => {
 	if ((age > 16) && (isInsured === true) && (hasCar === true)) {
 		console.log(`Can use POV`);
-	} else if (((age <= 16) || (isInsured === false) || (hasCar === false)) && (canGetRideShare === true)) {
+	} else if (((age <= 16) || (isInsured === false) || (hasCar === false)) && (rideshareAble === true)) {
 		console.log(`Call a rideshare`)
 	} else
 		console.log(`Call a friend`)
 }
 
-
+getToDestination(15, false, false)
 // ---
-//
+// TODO
 // #### getToDestination, part 2
 //
 // - Create a function called canGetRideshare() which will *RETURN* a boolean
@@ -121,12 +124,15 @@ const getToDestination = (age, isInsured, hasCar, canGetRideShare) => {
 // - Call canGetRideshare() in the else if *after* !isLegalDriver &&...
 // - Be sure to log to the user if they can or cannot get a rideshare
 //
+
+console.log(canGetRideshare(true, true))
 // BONUS -> This exercise will probably get the mind wondering "How can I make this more?.."
 // - Consider this: What if mileage determined:
 // 	- If the rider has enough funds?
 // 	- If there is a driver close enough to service the rider?
 //
 // 	---
+// TODO
 // ### SWITCH STATEMENTS
 //
 // Let's make an application which helps a user input *validated* specs on a vehicle they are trying to sell:

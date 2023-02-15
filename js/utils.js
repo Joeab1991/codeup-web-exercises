@@ -6,3 +6,7 @@ const formatter = new Intl.NumberFormat('en-US', {
 });
 
 let random = Math.floor((Math.random() * 3) + 1);
+
+const isNumericAndNotNaN = (input) => {
+    return !isNaN(parseFloat(input)) && input !== null && typeof input !== "boolean" && typeof input !== "string";
+}
