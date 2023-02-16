@@ -5,6 +5,19 @@ const showMultiplicationTable = num => {
 		console.log(`${num} * ${i} = ${num * i}`);
 	}
 };
+
+/*instructor version
+const showMultiplicationTable = (number) => {
+	let table = ``;
+	for(let i = 1; i <= 10; i++){
+		let daMath = parseInt(number) * i;
+		let output = `${number} x ${i} = ${daMath}\n`;
+		table = table + output;
+	}
+	return table;
+}
+ */
+
 showMultiplicationTable(7);
 
 
