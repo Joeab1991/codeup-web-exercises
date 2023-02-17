@@ -30,28 +30,12 @@
 	 */
 
 
-	// planetsArray.unshift(`<ul>`);
-	//
-	// console.log(planetsArray);
-	//
-	// planetsArray.push(`<ul/>`);
-	//
-	// console.log(planetsArray);
+	let planetsUL = planetsArray.join(`</li><li>`);
 
-	let planetsUL = planetsArray.join(`</li><li> `);
-
-	let planetsL = planetsUL.split(` `);
+	let planetsL = planetsUL.split(`,`);
 
 	planetsL.splice(0, 0, `<ul><li>`);
-	//planetsL.splice(planetsL.length, 0, `</li>`);
-	//console.log(planetsL);
+	planetsL.splice(planetsL.length, 0, `</li></ul>`);
 
-	let planetsLR = planetsL.join(``);
-
-	console.log(`${planetsLR}</li></ul>`);
-
-	// planetsArray.forEach(function (string) {
-	// 	string + `<li>`;
-	// })
-	// console.log(planetsArray);
+	console.log(planetsL.join(``).split(`,`).join(``));
 })();
