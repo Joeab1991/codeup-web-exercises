@@ -13,7 +13,7 @@
 	 */
 	const person = {
 		firstName: `Joe`,
-		lastName: `Beltran`,
+		lastName: `Beltran`
 	}
 
 	console.log(person.firstName)
@@ -27,7 +27,9 @@
 	 * Example
 	 * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
 	 */
-	person.sayHello = () => (`Hello from ${person.firstName} ${person.lastName}`);
+	person.sayHello = function() {
+		return (`Hello from ${this.firstName} ${this.lastName}`);
+	}
 
 	console.log(person.sayHello())
 	console.log(person)
@@ -153,7 +155,7 @@ shoppers.forEach(shopper => {
 	books.push(new CreateBook(`Xenocide`, `Orson Scott`, `Card`))
 
 	let showBookInfo = (book) => {
-		console.log(`Book # ${books.indexOf(book)}
+		console.log(`Book # ${books.indexOf(book) + 1}
 	 Title: ${book.title}
 	 Author: ${book.author.firstName} ${book.author.lastName}`);
 	}
