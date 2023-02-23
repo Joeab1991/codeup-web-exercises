@@ -13,6 +13,10 @@ const isNumericAndNotNaN = (input) => {
     return !isNaN(parseFloat(input)) && input !== null && typeof input !== "boolean" && typeof input !== "string";
 }
 
+const isStringAndNaN = (input) => {
+    return isNaN(parseFloat(input)) && input !== null && typeof input !== "boolean" && typeof input === "string";
+}
+
 function shuffleArray(array) {
     // Loop through the array from the last index to the first
     for (let i = array.length - 1; i > 0; i--) {
@@ -23,6 +27,14 @@ function shuffleArray(array) {
     }
     // Return the shuffled array
     return array;
+}
+
+const isConsonant = (letter) => {
+    if (typeof letter !== 'string' || letter.length !== 1 || !letter.match(/[a-z]/i)) {
+        return false; // input is not a single alphabetical letter
+    }
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    return !vowels.includes(letter.toLowerCase());
 }
 
 function arrayOfRandomNumbers(lengthOfArray){
