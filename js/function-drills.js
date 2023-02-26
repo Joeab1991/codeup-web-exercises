@@ -35,10 +35,10 @@ const isTruthy = (input) => input ==true;
 // // behave like false
 const isFalsy = (input) => input == false;
 // // - Make a function named `isVowel(letter)`
-const isVowel = (letter) => {
-	const vowel = [`a`, `e`, `i`, `o`, `u`];
-	return vowel.includes(letter.toLowerCase());
-}
+// const isVowel = (letter) => {
+// 	const vowel = [`a`, `e`, `i`, `o`, `u`];
+// 	return vowel.includes(letter.toLowerCase());
+// }
 // // - Make a function named `isConsonant(letter)`
 // const isConsonant = (letter) => {
 // 	const vowel = [`a`, `e`, `i`, `o`, `u`];
