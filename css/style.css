@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap');
 
+.photos-wrapper {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.photo-wrapper {
+    height: available;
+}
+
 .fancy-header {
     text-align: center;
 }
@@ -25,3 +35,14 @@ ul {
     list-style: url("../images/money.png" );
 }
 
+.list-header{
+    text-align: center;
+}
+
+.lists-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: left;
+}
