@@ -1,3 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap');
+
 .fancy-header {
-    color: purple;
+    text-align: center;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    color: green;
+    text-decoration: underline;
+    font-family: Roboto, serif;
+}
+
+body {
+    color: azure;
+    background: black url("../images/istockphoto-1283813790-1024x1024.jpg") center center/ cover no-repeat fixed;
+    font-family: "Playfair Display", serif;
+}
+
+ol {
+    list-style: upper-roman;
+}
+
+ul {
+    list-style: url("../images/money.png" );
+}
+
