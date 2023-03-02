@@ -3,12 +3,24 @@
 
 .photos-wrapper {
     display: flex;
-    flex-direction: row;
+    width:100%;
     column-gap: 20px;
+    perspective: 91px;
+    perspective-origin: center;
+    margin-bottom: 20px;
 }
 
-.photo-wrapper {
-    height: available;
+.centered-section {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photos-wrapper .photo-wrapper {
+    flex: 1 0 0;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+
 }
 
 .fancy-header {
@@ -23,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     color: azure;
-    background: black url("../images/istockphoto-1283813790-1024x1024.jpg") center center/ cover no-repeat fixed;
+    background: #fff4c8 url("../images/wallpaper-coin-stack.png") center center/ cover no-repeat fixed;
     font-family: "Playfair Display", serif;
 }
 
