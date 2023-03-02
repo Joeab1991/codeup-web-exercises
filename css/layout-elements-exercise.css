@@ -31,9 +31,10 @@ main.container {
 }
 
 .row.hero-scene {
-    padding: 110px 0;
+    padding: 65px 0;
     flex: 1 0 0;
-    gap: 171px;
+    gap: 95px;
+    color: #6b6b6b;
 }
 
 .img-placeholder {
@@ -56,7 +57,7 @@ main.container {
 .container {
     padding: 0 20%;
     font-family: Roboto-Thin-100, sans-serif;
-    color: #6b6b6b;
+    color: #929293;
 }
 
 button {
@@ -80,7 +81,7 @@ button {
 .small-hero-text{
     font-size: 10px;
     font-weight: bold;
-    color: #c7c7c7;
+    color: #929293;
 }
 
 .header {
@@ -91,4 +92,9 @@ button {
 .row.feature-header {
     padding-top: 80px;
     padding-bottom: 80px;
+}
+
+h3.feature-header {
+    padding-top: 40px;
+    padding-bottom: 20px;
 }
