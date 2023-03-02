@@ -2,6 +2,8 @@
 
 header.container {
     min-height: 80px;
+    box-shadow: 0 0 15px -9px #000;
+    position: relative;
 }
 
 .logo {
@@ -20,14 +22,15 @@ main.container {
     padding-bottom: 80px;
     min-height: 680px;
     /*border-bottom: #e3e3e3 solid 2px;*/
-    border-top: #f1f1f2 solid 2px;
+    /*border-top: #f1f1f2 solid 2px;*/
     flex: 1 0 0;
 }
 
 .column.hero-box {
-    background-color: #929293;
+    background-color: #979797;
     border-radius: 5px;
     flex: 1 0 0;
+    box-shadow: 0 0 15px -9px #000;
 }
 
 .row.hero-scene {
@@ -35,6 +38,7 @@ main.container {
     flex: 1 0 0;
     gap: 95px;
     color: #6b6b6b;
+    line-height: 1.2;
 }
 
 .img-placeholder {
@@ -56,7 +60,7 @@ main.container {
 
 .container {
     padding: 0 20%;
-    font-family: Roboto-Thin-100, sans-serif;
+    font-family: 'Roboto-Thin-100', sans-serif;
     color: #929293;
 }
 
@@ -65,17 +69,17 @@ button {
     color: #f2f2f2;
     border-radius: 5px;
     border: unset;
-    height: 30px;
+    padding: 8px 20px;
+    font-size: 11px;
 }
 
 .column.button {
     color: #f2f2f2;
-    flex: 1 0 0;
 }
 
 .row.nav {
     font-size: 12px;
-    flex: 1 0 0;
+    gap: 20px;
 }
 
 .small-hero-text{
@@ -92,6 +96,7 @@ button {
 .row.feature-header {
     padding-top: 80px;
     padding-bottom: 80px;
+    color: #6d6d6d;
 }
 
 h3.feature-header {

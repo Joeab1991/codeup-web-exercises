@@ -64,6 +64,9 @@
 .row.justify-space-around {
     justify-content: space-around;
 }
+.row.justify-right {
+    justify-content: end;
+}
 .row.no-padding {
     padding: unset;
 }
@@ -90,7 +93,7 @@
 }
 /* Combo classes to extend the column's versatility */
 .column.shrink {
-    flex: 0 1 0;
+    flex: 0 1 auto;
 }
 .column.grow {
     flex: 2 0 0;
