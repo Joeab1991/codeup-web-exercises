@@ -33,12 +33,20 @@ console.log(convertAddressToObject(addr1))
  *
  * Examples
  *
- * >> totalPets([
- *       {name: 'Fernando Mendoza', pets: 1},
- *       {name: 'Douglas Hirsh', pets: 8},
- *       {name: 'Kenneth Howell', pets: 2}
- *    ]) ➞ 11
  */
+
+let people= ([
+    {name: 'Fernando Mendoza', pets: 1},
+    {name: 'Douglas Hirsh', pets: 8},
+    {name: 'Kenneth Howell', pets: 2}
+]);
+
+
+function totalPets(personsArray){
+	let total = 0;
+	personsArray.forEach(person => total += person.pets);
+	return total;
+}
 
 /** TODO
  * Find the Smallest and Biggest Numbers
@@ -53,6 +61,10 @@ console.log(convertAddressToObject(addr1))
  * Notes
  * All test arrays will have at least one element and are valid.
  */
+
+const minMax = (numbersArray) => {
+	let min = numbersArray
+}
 
 /** TODO
  * Drink Sorting
@@ -69,6 +81,15 @@ console.log(convertAddressToObject(addr1))
  * Examples
  * >> sortDrinkByPrice(drinks) ➞ [{name: "lime", price: 10}, {name: "lemonade", price: 50}]
  */
+
+drinks = [
+	{name: "lemonade", price: 50},
+	{name: "lime", price: 10}
+]
+
+function sortDrinkByPrice(drinksArray){
+	return drinksArray.sort((a, b) => a.price - b.price);
+}
 
 /** TODO
  * Get Sum of People's Budget

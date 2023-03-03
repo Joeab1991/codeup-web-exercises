@@ -79,6 +79,9 @@
 .row.align-bottom {
     align-items: end;
 }
+.row.grow {
+    flex: 1 0 0;
+}
 
 /*
     The "column" is a container element that vertically separates its
