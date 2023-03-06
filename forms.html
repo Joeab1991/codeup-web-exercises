@@ -2,21 +2,54 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Forms Lecture</title>
+	<title>Register With Us</title>
     <link rel="stylesheet" href="css/resets.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/forms-style.css">
 </head>
 <body>
-<form>
-	<label for="username">Username:</label>
-	<input type="text" id="username">
+<form method="POST" action="https://request-inspector.glitch.me/">
+	<label for="email">Email:</label>
+	<input type="email" id="email">
 	<br>
 	<br>
 	<label	for="password">Password:</label>
 	<input type="password" id="password" name="password">
 	<br>
 	<br>
+	<label	for="bio">Bio:</label>
+	<textarea name="bio" id="bio"></textarea>
+	<br>
+	<br>
+	<fieldset>
+		<legend><h4>How did you hear about us?</h4></legend>
+		<div class="input-wrapper">
+			<label for="billboard">Billboard:</label>
+			<input type="radio" name="referral1" value="billboard" id="billboard">
+		</div>
+		<div class="input-wrapper">
+			<label for="radioAdvertisement">Radio Advertisement:</label>
+			<input type="radio" name="referral2" value="radioAdvertisement" id="radioAdvertisement">
+		</div>
+		<div class="input-wrapper">
+			<label for="internetAdvertisement">Internet Advertisement:</label>
+			<input type="radio" name="referral3" value="internetAdvertisement" id="internetAdvertisement">
+		</div>
+		<div class="input-wrapper">
+			<label for="other">Other:</label>
+			<input type="radio" name="referral4" value="other" id="other">
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend><h4><label for="browser">Select your browser:</label></h4></legend>
+		<select name="browser" id="browser">
+			<option value="Safari">Safari</option>
+			<option value="Chrome">Chrome</option>
+			<option value="Firefox">Firefox</option>
+			<option value="Opera">Opera</option>
+			<option value="AOL">AOL</option>
+		</select>
+	</fieldset>
 	<input type="submit">
 </form>
 </body>
