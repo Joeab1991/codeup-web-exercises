@@ -29,7 +29,9 @@
 .container.justify-center {
     justify-content: center;
 }
-
+.container.justify-bottom {
+    justify-content: end;
+}
 .container.full-width {
     width: 100%;
 }
@@ -112,6 +114,9 @@
 }
 .column.justify-center {
     justify-content: center;
+}
+.column.justify-bottom {
+    justify-content: end;
 }
 .column.justify-space-between {
     justify-content: space-between;
