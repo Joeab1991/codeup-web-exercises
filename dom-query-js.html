@@ -8,6 +8,9 @@
 <body>
 
 <h1 id="main-header">Hello World!</h1>
+
+<button id="mH-Button">Change it up!</button>
+
 <ul>
     <li data-dbid="1">Item 1</li>
     <li data-dbid="2">Item 2</li>
@@ -15,7 +18,13 @@
     <li data-dbid="4">Item 4</li>
     <li data-dbid="5">Item 5</li>
 </ul>
+
+<button id="list-Button">Change it up!</button>
+
 <h2 id="sub-header">Hello Again.</h2>
+
+<button id="sH-Button">Change it up!</button>
+
 <p class="sub-paragraph">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -25,6 +34,8 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
+
+<button id="p-Button">Change it up!</button>
 
 <script>
     (function() {
@@ -36,33 +47,56 @@
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
 
-        mainHeader.innerHTML = (`Javascript is Cool`);
+        let mHButton = document.querySelector(`#mH-Button`);
+
+		mHButton.addEventListener(`click`, function (){
+			mainHeader.innerHTML = (`Javascript is Cool`);
+		})
 
         // TODO: Uncomment the next line and get the sub header element by id
         let subHeader = document.querySelector(`#sub-header`);
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = (`blue`)
+
+		let sHButton = document.querySelector(`#sH-Button`);
+
+		sHButton.addEventListener(`click`, function (){
+			subHeader.style.color = (`blue`);
+		})
+
+
         // TODO: Uncomment the next line and get all list items
         let listItems = document.querySelectorAll(`li`);
 
         // TODO: Set text color on every other list item to grey
         // TODO: Set text color of li with dbid = 1 to blue
 
-        listItems.forEach((listItem, index) => {
-            if (isEven(listItem.dataset.dbid) === true){
-                listItem.style.color = (`grey`);
-            } if (listItem.dataset.dbid == 1) {
-                listItem.style.color = (`blue`)
-            }
-        });
+		let listButton = document.querySelector(`#list-Button`);
+
+		listButton.addEventListener(`click`, function (){
+			listItems.forEach((listItem, index) => {
+				if (isEven(listItem.dataset.dbid) === true){
+					listItem.style.color = (`grey`);
+				} if (listItem.dataset.dbid == 1) {
+					listItem.style.color = (`blue`)
+				}
+			});
+		})
+
 
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         let subParagraphs = document.querySelectorAll(`.sub-paragraph`);
 
+        console.log(subParagraphs)
+
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerText = (`Mission Accomplished!`)
+
+		let pButton = document.querySelector(`#p-Button`);
+
+		pButton.addEventListener(`click`, function (){
+			subParagraphs[0].innerText = (`Mission Accomplished!`);
+		})
 
     })();
 </script>
