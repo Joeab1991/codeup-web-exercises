@@ -8,17 +8,38 @@
 	top: 20vh;
 }
 
-.card-wrapper {
+.card-back {
 	height: 250px;
 	width: 180px;
-	top: 400px;
-	right: 500px;
-	position: fixed;
 	border-radius: 14px;
 	box-shadow: -1px 2px 5px 2px rgba(0, 0, 0, 0.5);
 	overflow: hidden;
-	vertical-align: center;
+	position: fixed;
+	z-index: 999;
+	transition: ease all .3s;
+	object-position: center;
 	display: flex;
 	flex-direction: row;
 }
 
+.card-face {
+	height: 250px;
+	width: 180px;
+	border-radius: 14px;
+	box-shadow: -1px 2px 5px 2px rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	transition: ease all .3s;
+	position: fixed;
+	object-position: center;
+}
+
+.button-wrapper {
+	justify-content: start;
+
+}
+
+.play-area {
+	flex-direction: column;
+}
