@@ -55,3 +55,12 @@ function arrayOfRandomNumbers(lengthOfArray){
 function removeDuplicates(arr) {
     return arr.filter((item, index) => arr.indexOf(item) === index);
 }
+
+//remove duplicate objects from an array
+function removeDuplicateObjects(arr) {
+    return arr.filter(
+        (obj, index, self) =>
+            index ===
+            self.findIndex((t) => t.name === obj.name)
+    );
+}
