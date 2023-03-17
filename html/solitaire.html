@@ -40,10 +40,39 @@
 					</div>
 				</div>
 				<div  class="row justify-center buttons">
-					<div class="button-wrapper justify-center">
-						<button id="flipButton">Flip Card</button>
-						<button id="drawButton">Draw New Card</button>
-					</div>
+					<form class="column">
+						<div class="input-wrapper column">
+							<label for="suit">Choose a Suit</label>
+							<select name="suit" id="suit">
+								<option>Spade</option>
+								<option>Club</option>
+								<option>Heart</option>
+								<option>Diamond</option>
+							</select>
+						</div>
+						<div class="input-wrapper column">
+							<label for="card-value">Choose a Value</label>
+							<select name="card-value" id="card-value">
+								<option>Ace</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>Jack</option>
+								<option>Queen</option>
+								<option>King</option>
+							</select>
+						</div>
+					</form>
+				</div>
+				<div class="row button-wrapper justify-space-between">
+					<button id="flipButton">Flip Card</button>
+					<button id="drawButton">Draw New Card</button>
 				</div>
 			</div>
 			<div class="column score">

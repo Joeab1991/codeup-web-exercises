@@ -77,7 +77,10 @@ h1 {
 }
 
 .button-wrapper {
-	justify-content: start;
 
+}
+
+form.column {
+	gap: 20px;
 }
 
