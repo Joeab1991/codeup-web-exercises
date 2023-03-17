@@ -10,23 +10,45 @@
 <body>
 	<div class="page-wrapper">
 		<div class="container">
-			<div class="row play-area">
-				<div class="column"></div>
-				<div class="column justify-center align-center">
-					<div class="card-back">
-						<img id="card-back" src="../images/Loteria/back-tarot.jpeg/" alt="back">
-					</div>
-					<div class="card-face">
+			<header class="row justify-center">
+				<div class="column">
+					<h1>Play Cards!</h1>
+				</div>
+				<div class="column navbar">
+					<div class="row nav-links">
+						<p>Home</p>
+						<p>Games</p>
+						<p>Options</p>
 					</div>
 				</div>
-				<div  class="column buttons">
-					<div class="button-wrapper row justify-center">
+			</header>
+		</div>
+		<section class="container play-area">
+			<div class="column">
+			</div>
+			<div class="column game">
+				<div class="row justify-center game-name">
+					<h2>Guess the Card</h2>
+				</div>
+				<div class="row justify-center align-center">
+					<div class="column card-wrapper align-center">
+						<div class="card-back">
+							<img id="card-back" src="../images/Loteria/back-tarot.jpeg/" alt="back">
+						</div>
+						<div class="card-face">
+						</div>
+					</div>
+				</div>
+				<div  class="row justify-center buttons">
+					<div class="button-wrapper justify-center">
 						<button id="flipButton">Flip Card</button>
 						<button id="drawButton">Draw New Card</button>
 					</div>
 				</div>
 			</div>
-		</div>
+			<div class="column score">
+			</div>
+		</section>
 	</div>
 <script src="../js/utils.js"></script>
 <script src="../js/solitaire.js"></script>

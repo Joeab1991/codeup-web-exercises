@@ -2,36 +2,77 @@
 	background-color: #106C48;
 }
 
-.row.play-area {
-	height: 80vh;
+header.row {
+	font-size: 30px;
+	border-bottom: thin solid black;
 	width: 100vw;
-	top: 20vh;
+	padding: unset;
+}
+h1 {
+	margin: unset;
+}
+.navbar.column{
+	display: flex;
+	justify-content: flex-end;
+}
+.nav-links.row{
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 5px;
+}
+
+.row {
+	max-width: unset;
+}
+
+.container.play-area {
+	flex-direction: row;
+}
+.column.game {
+	gap: 40px;
+}
+.column.score {
+	max-width: 33vw;
+	min-height: 250px;
+	align-content: space-between;
+	justify-content: space-between;
+	gap: 36px 18px;
+	box-shadow: inset 0 0 5px 1px rgb(222, 191, 162);
+	border: 12px solid rgba(153, 102, 55, 0.97);
+	background-color: rgba(25, 29, 31, 0.77);
+	border-radius: 5px;
+	color: #ffffff;
+	padding: 10px;
+	margin: 20px;
+}
+.game-name {
+	flex: unset;
+	margin: 20px 0 40px 0;
 }
 
 .card-back {
 	height: 250px;
 	width: 180px;
-	border-radius: 14px;
-	box-shadow: -1px 2px 5px 2px rgba(0, 0, 0, 0.5);
+	border-radius: 7px;
+	box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.5);
 	overflow: hidden;
 	position: fixed;
 	z-index: 999;
 	transition: ease all .3s;
 	object-position: center;
 	display: flex;
-	flex-direction: row;
+
 }
 
 .card-face {
 	height: 250px;
 	width: 180px;
-	border-radius: 14px;
-	box-shadow: -1px 2px 5px 2px rgba(0, 0, 0, 0.5);
+	border-radius: 7px;
+	box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.5);
 	overflow: hidden;
 	display: flex;
 	flex-direction: row;
 	transition: ease all .3s;
-	position: fixed;
 	object-position: center;
 }
 
@@ -40,6 +81,3 @@
 
 }
 
-.play-area {
-	flex-direction: column;
-}
