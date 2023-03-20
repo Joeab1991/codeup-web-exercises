@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Solitaire!</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="../images/Loteria/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../images/Loteria/favicon-16x16.png">
 	<link rel="stylesheet" href="../css/resets.css">
 	<link rel="stylesheet" href="../css/layout.css">
 	<link rel="stylesheet" href="../css/solitaire.css">
@@ -12,7 +14,10 @@
 		<div class="container">
 			<header class="row justify-center">
 				<div class="column">
-					<h1>Play Cards!</h1>
+					<div class="row align-center no-padding">
+						<img class="logo" src="../images/Loteria/android-chrome-192x192.png" alt="pokerchip">
+						<h1 class="logo-head">Play Cards!</h1>
+					</div>
 				</div>
 				<div class="column navbar">
 					<div class="row nav-links">
@@ -75,7 +80,11 @@
 					<button id="drawButton">Draw New Card</button>
 				</div>
 			</div>
-			<div class="column score">
+			<div class="column score align-center">
+				<h2>High Score</h2>
+				<p id="high-score" class="high-score"></p>
+				<h2>Current Score</h2>
+				<p id="current-score" class="current-score"></p>
 			</div>
 		</section>
 	</div>

@@ -1,4 +1,4 @@
-const deck = [
+let deck = [
 	{ suit: 'Heart', value: 'ace', face: '<img src="../images/Loteria/ace-hearts.jpg" alt="">', back: `<img src="../images/Loteria/back-tarot.jpeg" alt="card back">` },
 	{ suit: 'Heart', value: '2', face: '<img src="../images/Loteria/two-hearts.jpg" alt="">', back: `<img src="../images/Loteria/back-tarot.jpeg" alt="card back">` },
 	{ suit: 'Heart', value: '3', face: '<img src="../images/Loteria/three-hearts.jpg" alt="">', back: `<img src="../images/Loteria/back-tarot.jpeg" alt="card back">` },
@@ -59,26 +59,63 @@ let flip = document.querySelector(`#flipButton`)
 let draw = document.querySelector(`#drawButton`)
 let suitGuess = document.querySelector(`#suit`)
 let valueGuess = document.querySelector(`#card-value`)
+let score = document.querySelector(`#current-score`)
+let currentCard = deck[randomNumber(0,51)];
+let scoreUpdate = 0;
 
+cardFace.innerHTML = currentCard.face;
+score.innerHTML = scoreUpdate;
 
-cardFace.innerHTML = (deck[randomNumber(0,51)].face);
+console.log(currentCard)
 
-function removeGuess (suitGuess, valueGuess) {
-	deck.filter(function(card) {
-		(card.suit === suitGuess.value) && (card.value === valueGuess.value);
-	});
+function removeGuess (suit, value) {
+	if ((currentCard.suit === suit.toLowerCase()) || (currentCard.value === value.toLowerCase())) {
+		deck = deck.filter(function(card) {
+			return ((card.suit.toLowerCase() !== suit.toLowerCase()) || (card.value.toLowerCase() !== value.toLowerCase()));
+		});
+		return deck;
+	}
 }
 
-console.log(removeGuess(`Spade`, `Ace`)),
+function update (num) {
+	if (num < 52) {
+		scoreUpdate = 52 - num;
+	} else {
+	return 0;
+	}
+}
+
 
 flip.addEventListener(`click`, function(){
 	cardBack.toggleAttribute(`hidden`);
-
+	removeGuess(suitGuess.value, valueGuess.value);
+	update(deck.length)
+	score.innerHTML = scoreUpdate;
 })
 
 draw.addEventListener(`click`, function(){
-	cardFace.innerHTML = (deck[randomNumber(0,51)].face);
+	currentCard = deck[randomNumber(0,deck.length-1)];
+	cardFace.innerHTML = currentCard.face;
 	if (cardBack.hasAttribute(`hidden`)) {
 	cardBack.toggleAttribute(`hidden`);
 	}
+	console.log(currentCard);
+})
+
+suitGuess.addEventListener(`click`, function(){
+	currentCard = deck[randomNumber(0,deck.length-1)];
+	cardFace.innerHTML = currentCard.face;
+	if (cardBack.hasAttribute(`hidden`)) {
+		cardBack.toggleAttribute(`hidden`);
+	}
+	console.log(currentCard);
+})
+
+valueGuess.addEventListener(`click`, function(){
+	currentCard = deck[randomNumber(0,deck.length-1)];
+	cardFace.innerHTML = currentCard.face;
+	if (cardBack.hasAttribute(`hidden`)) {
+		cardBack.toggleAttribute(`hidden`);
+	}
+	console.log(currentCard);
 })
