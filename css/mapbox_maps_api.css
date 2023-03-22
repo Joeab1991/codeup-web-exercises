@@ -1,0 +1,12 @@
+input[type="range"] {
+	appearance: slider-vertical;
+}
+
+.page-wrapper {
+	justify-content: center;
+	flex-direction: row;
+}
+
+.zoom {
+	padding-top: 175px;
+}

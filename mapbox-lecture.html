@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mapbox Lecture</title>
+	<script src="js/keys.js"></script>
+	<script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
+	<link rel="stylesheet" href="css/resets.css">
+	<link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+	<div class="page-wrapper">
+		<div class="container">
+			<div id='map' style='width: 400px; height: 300px;'></div>
+			<div class="row justify-center">
+				<form>
+					<label for="zoom"></label>
+					<input type="range" id="zoom" max="20" min="1" step="1">
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="js/mapbox-geocoder-utils.js"></script>
+	<script>
+		mapboxgl.accessToken = MAPBOX_API_TOKEN;
+		const map = new mapboxgl.Map({
+			container: 'map', // container ID
+			style: 'mapbox://styles/mapbox/streets-v12', // style URL
+			center: [-74.5, 40], // starting position [lng, lat]
+			zoom: 9, // starting zoom
+		});
+
+		let slider = document.querySelector(`#zoom`)
+		let level = slider.value;
+		console.log(level)
+
+		slider.addEventListener(`change`, function (event){
+			level = slider.value;
+			map.zoom = level;
+
+			console.log(map);
+		})
+	</script>
+</body>
+</html>

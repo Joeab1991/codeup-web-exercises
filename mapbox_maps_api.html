@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MapBox Exercise</title>
+	<script src="js/keys.js"></script>
+	<script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/resets.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/mapbox_maps_api.css">
+</head>
+<body>
+<div class="page-wrapper">
+	<div class="container">
+		<h1>My Restaurant Map!</h1>
+		<div id='map' style='width: 400px; height: 300px;'></div>
+		<button id="favorite">My Favorite Restaurant</button>
+		<button id="favorites">Three Favorite Restaurants</button>
+	</div>
+	<div class="container zoom">
+		<div class="row no-padding">
+			<div class="column justify-center align-center">
+				<label for="zoom">Zoom</label>
+				<input type="range" id="zoom" max="20" min="0" step="1" list="markers">
+				<datalist id="markers">
+					<option>0</option>
+					<option>5</option>
+					<option>10</option>
+					<option>15</option>
+					<option>20</option>
+				</datalist>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+	// mapboxgl.accessToken = MAPBOX_API_TOKEN;
+	// const map = new mapboxgl.Map({
+	// 	container: 'map', // container ID
+	// 	style: 'mapbox://styles/mapbox/streets-v12', // style URL
+	// 	center: [-74.5, 40], // starting position [lng, lat]
+	// 	zoom: 9, // starting zoom
+	// });
+
+	mapboxgl.accessToken = MAPBOX_API_TOKEN;
+	const map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/mapbox/streets-v9',
+		zoom: 11,
+		center: [-98.4916, 29.4252]
+	});
+
+	// the  geocode method from mapbox-geocoder-utils.js
+	geocode("Port Hueneme, CA", MAPBOX_API_TOKEN).then(function(result) {
+		console.log(result);
+		map.setCenter(result);
+		map.setZoom(12);
+	});
+</script>
+<script src="js/utils.js"></script>
+<script src="js/mapbox_maps_api.js"></script>
+</body>
+</html>
+
+<!--
+
+
+Refactor your code to display at least three of your favorite restaurants with information about each. Create an array of objects with information about each restaurant to accomplish this. Use a .forEach() loop rather than a for loop.-->
