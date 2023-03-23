@@ -22,7 +22,6 @@
 			type: `Snack Shop`
 		}
 	];
-	console.log(threeFavs)
 
 	slider.addEventListener(`change`, function (event){
 		level = slider.value;
@@ -40,8 +39,6 @@
 		map.setZoom(18);
 	});
 
-
-
 	favorites.addEventListener(`click`, function(){
 		threeFavs.forEach(function (restaurant) {
 			geocode(`${restaurant.address}`, MAPBOX_API_TOKEN).then(function(result) {
@@ -56,5 +53,4 @@
 		});
 		map.setZoom(1);
 	});
-
 })();
