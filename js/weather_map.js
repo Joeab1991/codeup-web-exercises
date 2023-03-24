@@ -9,8 +9,6 @@
 	let day3 = document.querySelector(`.day3`);
 	let day4 = document.querySelector(`.day4`);
 	let day5 = document.querySelector(`.day5`);
-	let sunrise = document.querySelector(`.sunrise`);
-	let sunset = document.querySelector(`.sunset`);
 
 	// Generate the map
 	mapboxgl.accessToken = MAPBOX_API_TOKEN;
@@ -19,7 +17,7 @@
 		projection: `globe`,
 		style: 'mapbox://styles/mapbox/satellite-v9',
 		zoom: 1,
-		center: [-98.4916, 29.4252]
+		center: [-98.495141, 29.4246]
 	});
 
 	// Add the fog effect to the map
@@ -34,72 +32,9 @@
 
 	});
 
-	// Update the five-day forecast based on search input
-	const updateFiveDayWeather = async (arry = [-98.4916, 29.4252]) => {
-		const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${arry[1]}&lon=${arry[0]}&units=imperial&appid=${OPENWEATHER_API_TOKEN}`);
-		return await response.json();
-	};
 
-
-
-	searchButton.addEventListener(`click`,  async function(event){
-		event.preventDefault();
-		// geocode the search input
-		let coords =await geocode(`${searchInput.value}`, MAPBOX_API_TOKEN).then(async function(result) {
-			console.log(result);
-			map.setCenter(result);
-			map.setZoom(13);
-			return result;
-		});
-		console.log(await updateFiveDayWeather(coords));
-		return await updateFiveDayWeather(coords)
-	});
-
-	// Update the local weather based on default coordinates
-	const updateLocalWeather = async () => {
-		const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=San Antonio,TX,US&appid=${OPENWEATHER_API_TOKEN}`);
-		return await response.json();
-	};
-
-
-	let fiveDayWeather = await updateFiveDayWeather();
-	let weatherData = await updateLocalWeather();
-	console.log(weatherData);
-	console.log(fiveDayWeather);
-
-	//update html with weather data
-	localWeather.innerHTML = `<h2 class="text-light lh-1">${weatherData.name}<br>
-							<small class="text-muted fst-italic fs-5">${titleCase(weatherData.weather[0].description)}</small>
-							<br>
-							<small class="text-muted fst-italic fs-5">${formatUnixTimestamp(weatherData.dt)}</small>
-							</h2>
-							<ul class="list-group list-group-horizontal">
-                                <li class="list-group-item border-0 flex-fill ps-0">Current Temperature:</li>
-                                <li class="list-group-item border-0 text-end pe-0">${kelvinToFahrenheit(weatherData.main.temp)}°</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal">
-                                <li class="list-group-item border-0 flex-fill ps-0">Feels Like:</li>
-                                <li class="list-group-item border-0 text-end pe-0">${kelvinToFahrenheit(weatherData.main.feels_like)}°</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal">
-                                <li class="list-group-item flex-fill border-0 ps-0">H: ${kelvinToFahrenheit(weatherData.main.temp_max)}°</li>
-                                <li class="list-group-item flex-fill border-0 text-end pe-0">L: ${kelvinToFahrenheit(weatherData.main.temp_min)}°</li>
-							</ul>
-							 <ul class="list-group list-group-horizontal">
-                                <li class="list-group-item flex-fill border-0 ps-0">Humidity:</li>
-                                <li class="list-group-item border-0 text-end pe-0">${weatherData.main.humidity}%</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal">
-                                <li class="list-group-item flex-fill border-0 ps-0">Sunrise:</li>
-                                <li class="list-group-item border-0 text-end pe-0">${formatUnixTimestamp(weatherData.sys.sunrise).substring(formatUnixTimestamp(weatherData.sys.sunrise).indexOf(` `))}</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal">
-                                <li class="list-group-item flex-fill border-0 ps-0">Sunset:</li>
-                                <li class="list-group-item border-0 text-end pe-0">${formatUnixTimestamp(weatherData.sys.sunset).substring(formatUnixTimestamp(weatherData.sys.sunset).indexOf(` `))}</li>
-                            </ul>`;
 
 	//update html with five-day forecast
-	let days = [`Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`];
 	let dayCards = [day1, day2, day3, day4, day5];
 	let dayData = [];
 
@@ -125,7 +60,54 @@
 		});
 	};
 
-	await updateEachDay(fiveDayWeather);
+	// Update the five-day forecast based on default coordinates
+	let fiveDayWeatherData = [];
+	const updateFiveDayWeatherData = async (arry = [-98.495141, 29.4246]) => {
+		const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${arry[1]}&lon=${arry[0]}&units=imperial&appid=${OPENWEATHER_API_TOKEN}`);
+		fiveDayWeatherData = await response.json();
+		await updateEachDay(fiveDayWeatherData);
+	};
 
+	await updateFiveDayWeatherData()
 
+	// Update the local weather based on default coordinates
+	let updateCurrentDay = async (obj) => {
+			let cloudCover = obj.weather[0].main;
+			let date = formatUnixTimestamp(obj.dt);
+			localWeather.querySelector(`img`).src = `https://openweathermap.org/img/w/${obj.weather[0].icon}.png`;
+			localWeather.querySelector(`.day`).innerHTML = `${obj.name}<br><small class="text-muted fst-italic fs-6">${cloudCover}</small><br><small class="text-muted fst-italic fs-6">${date}</small>`;
+			localWeather.querySelector(`.temp`).innerHTML = `${Math.round(obj.main.temp)}°`;
+			localWeather.querySelector(`.feelsLike`).innerHTML = `${Math.round(obj.main.feels_like)}°`;
+			localWeather.querySelector(`.highTemp`).innerHTML = `H: ${Math.round(obj.main.temp_max)}°`;
+			localWeather.querySelector(`.lowTemp`).innerHTML = `L: ${Math.round(obj.main.temp_min)}°`;
+			localWeather.querySelector(`.humidity`).innerHTML = `${obj.main.humidity}%`;
+			localWeather.querySelector(`.sunrise`).innerHTML = `${formatUnixTimestamp(obj.sys.sunrise).substring(formatUnixTimestamp(obj.sys.sunrise).indexOf(` `))}`;
+			localWeather.querySelector(`.sunset`).innerHTML = `${formatUnixTimestamp(obj.sys.sunset).substring(formatUnixTimestamp(obj.sys.sunset).indexOf(` `))}`;
+	};
+
+	let currentWeatherData = [];
+	const updateLocalWeatherData = async (arry = [-98.495141, 29.4246]) => {
+		const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${arry[1]}&lon=${arry[0]}&units=imperial&appid=${OPENWEATHER_API_TOKEN}`);
+		currentWeatherData = await response.json();
+		console.log(currentWeatherData);
+		await updateCurrentDay(currentWeatherData);
+	};
+
+	await updateLocalWeatherData();
+
+	// Update the five-day forecast based on search input
+	searchButton.addEventListener(`click`,  async function(event){
+		event.preventDefault();
+		// geocode the search input
+		let coords =await geocode(`${searchInput.value}`, MAPBOX_API_TOKEN).then(async function(result) {
+			map.setCenter(result);
+			map.setZoom(13);
+			return result;
+		});
+		dayData = []; // Reset dayData to an empty array
+		await updateFiveDayWeatherData(coords);
+		await updateEachDay(fiveDayWeatherData);
+		await updateLocalWeatherData(coords);
+		await updateCurrentDay(currentWeatherData);
+	});
 })();
