@@ -13,20 +13,22 @@
 </head>
 <body>
 <div class="container g-0">
+<!--		The Navbar-->
 	<div class="row justify-content-between">
-		<div class="col-10 d-flex flex-column align-items-center">
-			<nav class="navbar sticky-top vw-100 bg-body-tertiary">
-				<div class="container-fluid flex-column">
-				    <span class="navbar-text h1">
-				      Weather Map
-				    </span>
-					<span class="navbar-text fst-italic">
-				      "You like weather? We got weather. You like maps? We got one map for you."
-				    </span>
-				</div>
+		<div class="col d-flex flex-column align-items-center">
+			<nav class="navbar bg-body-tertiary sticky-top vw-100 p-3">
+				<h1 class="navbar-brand">Weather Map
+					<br>
+					<small class="text-muted fst-italic fs-6">"You like weather? We got weather. <br>You like maps? We got one map for you."</small>
+				</h1>
+				<form id="searchForm" class="d-flex" role="search">
+					<input id="searchInput" class="form-control me-2" type="search" placeholder="Enter a location" aria-label="Search">
+					<button id="searchButton" class="btn btn-outline-success" type="submit">Search</button>
+				</form>
 			</nav>
 		</div>
 	</div>
+<!--		The Current Weather and Map-->
 	<div class="row flex-nowrap">
 		<div class="col-3" data-bs-theme="dark">
 			<div class="card" style="width: 100%;">
@@ -39,69 +41,150 @@
 			<div id='map' style='width: 100%; height: 571px;'></div>
 		</div>
 	</div>
+<!--		The 5-Day Forecast-->
 	<div class="row flex-nowrap justify-content-center mb-5">
 		<div class="col-2 p-0" data-bs-theme="dark">
-			<div class="card" style="width: 100%;">
-				<img src="images/cloudy.png" class="card-img-top" alt="...">
-				<div class="card-body">
-				</div>
-			</div>
-		</div>
-		<div class="col-2 p-0" data-bs-theme="dark">
-			<div class="card" style="width: 100%;">
+			<div class="card day1" style="width: 100%;">
 				<img src="images/cloudy.png" class="card-img-top p-1" alt="...">
 				<div class="card-body p-1">
-					<h2 class="text-light lh-1 fs-4">Day of the Week
+					<h2 class="text-light lh-1 fs-4 day">Day of the Week
 						<br>
-						<small class="text-muted fst-italic fs-6">cloud report</small>
+						<small class="text-muted fst-italic fs-6 cloudCover">cloud report</small>
 						<br>
-						<small class="text-muted fst-italic fs-6">date</small>
+						<small class="text-muted fst-italic fs-6 date">date</small>
 					</h2>
 					<ul class="list-group list-group-horizontal">
-						<li class="list-group-item border-0 flex-fill ps-0">Avg Temo</li>
-						<li class="list-group-item border-0 text-end pe-0">temp°</li>
+						<li class="list-group-item border-0 flex-fill ps-0">Temperature:</li>
+						<li class="list-group-item border-0 text-end pe-0 temp">temp°</li>
 					</ul>
 					<ul class="list-group list-group-horizontal">
 						<li class="list-group-item border-0 flex-fill ps-0">Feels Like:</li>
-						<li class="list-group-item border-0 text-end pe-0">temp°</li>
+						<li class="list-group-item border-0 text-end pe-0 feelsLike">temp°</li>
 					</ul>
 					<ul class="list-group list-group-horizontal">
-						<li class="list-group-item flex-fill border-0 ps-0">H: temp°</li>
-						<li class="list-group-item flex-fill border-0 text-end pe-0">L: temp°</li>
+						<li class="list-group-item flex-fill border-0 ps-0 highTemp">H: temp°</li>
+						<li class="list-group-item flex-fill border-0 text-end pe-0 lowTemp">L: temp°</li>
 					</ul>
 					<ul class="list-group list-group-horizontal">
 						<li class="list-group-item flex-fill border-0 ps-0">Humidity:</li>
-						<li class="list-group-item border-0 text-end pe-0">percent%</li>
+						<li class="list-group-item border-0 text-end pe-0 humidity">percent%</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-2 p-0" data-bs-theme="dark">
+			<div class="card day2" style="width: 100%;">
+				<img src="images/cloudy.png" class="card-img-top p-1" alt="...">
+				<div class="card-body p-1">
+					<h2 class="text-light lh-1 fs-4 day">Day of the Week
+						<br>
+						<small class="text-muted fst-italic fs-6 cloudCover">cloud report</small>
+						<br>
+						<small class="text-muted fst-italic fs-6 date">date</small>
+					</h2>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item border-0 flex-fill ps-0">Temperature:</li>
+						<li class="list-group-item border-0 text-end pe-0 temp">temp°</li>
 					</ul>
 					<ul class="list-group list-group-horizontal">
-						<li class="list-group-item flex-fill border-0 ps-0">Sunrise:</li>
-						<li class="list-group-item border-0 text-end pe-0">time</li>
+						<li class="list-group-item border-0 flex-fill ps-0">Feels Like:</li>
+						<li class="list-group-item border-0 text-end pe-0 feelsLike">temp°</li>
 					</ul>
 					<ul class="list-group list-group-horizontal">
-						<li class="list-group-item flex-fill border-0 ps-0">Sunset:</li>
-						<li class="list-group-item border-0 text-end pe-0">time</li>
+						<li class="list-group-item flex-fill border-0 ps-0 highTemp">H: temp°</li>
+						<li class="list-group-item flex-fill border-0 text-end pe-0 lowTemp">L: temp°</li>
+					</ul>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item flex-fill border-0 ps-0">Humidity:</li>
+						<li class="list-group-item border-0 text-end pe-0 humidity">percent%</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="col-2 p-0" data-bs-theme="dark">
-			<div class="card" style="width: 100%;">
-				<img src="images/cloudy.png" class="card-img-top" alt="...">
-				<div class="card-body">
+			<div class="card  day3" style="width: 100%;">
+				<img src="images/cloudy.png" class="card-img-top p-1" alt="...">
+				<div class="card-body p-1">
+					<h2 class="text-light lh-1 fs-4 day">Day of the Week
+						<br>
+						<small class="text-muted fst-italic fs-6 cloudCover">cloud report</small>
+						<br>
+						<small class="text-muted fst-italic fs-6 date">date</small>
+					</h2>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item border-0 flex-fill ps-0">Temperature:</li>
+						<li class="list-group-item border-0 text-end pe-0 temp">temp°</li>
+					</ul>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item border-0 flex-fill ps-0">Feels Like:</li>
+						<li class="list-group-item border-0 text-end pe-0 feelsLike">temp°</li>
+					</ul>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item flex-fill border-0 ps-0 highTemp">H: temp°</li>
+						<li class="list-group-item flex-fill border-0 text-end pe-0 lowTemp">L: temp°</li>
+					</ul>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item flex-fill border-0 ps-0">Humidity:</li>
+						<li class="list-group-item border-0 text-end pe-0 humidity">percent%</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="col-2 p-0" data-bs-theme="dark">
-			<div class="card" style="width: 100%;">
-				<img src="images/cloudy.png" class="card-img-top" alt="...">
-				<div class="card-body">
+			<div class="card day4" style="width: 100%;">
+				<img src="images/cloudy.png" class="card-img-top p-1" alt="...">
+				<div class="card-body p-1">
+					<h2 class="text-light lh-1 fs-4 day">Day of the Week
+						<br>
+						<small class="text-muted fst-italic fs-6 cloudCover">cloud report</small>
+						<br>
+						<small class="text-muted fst-italic fs-6 date">date</small>
+					</h2>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item border-0 flex-fill ps-0">Temperature:</li>
+						<li class="list-group-item border-0 text-end pe-0 temp">temp°</li>
+					</ul>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item border-0 flex-fill ps-0">Feels Like:</li>
+						<li class="list-group-item border-0 text-end pe-0 feelsLike">temp°</li>
+					</ul>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item flex-fill border-0 ps-0 highTemp">H: temp°</li>
+						<li class="list-group-item flex-fill border-0 text-end pe-0 lowTemp">L: temp°</li>
+					</ul>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item flex-fill border-0 ps-0">Humidity:</li>
+						<li class="list-group-item border-0 text-end pe-0 humidity">percent%</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="col-2 p-0" data-bs-theme="dark">
-			<div class="card" style="width: 100%;">
-				<img src="images/cloudy.png" class="card-img-top" alt="...">
-				<div class="card-body">
+			<div class="card day5" style="width: 100%;">
+				<img src="images/cloudy.png" class="card-img-top p-1" alt="...">
+				<div class="card-body p-1">
+					<h2 class="text-light lh-1 fs-4 day">Day of the Week
+						<br>
+						<small class="text-muted fst-italic fs-6 cloudCover">cloud report</small>
+						<br>
+						<small class="text-muted fst-italic fs-6 date">date</small>
+					</h2>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item border-0 flex-fill ps-0">Temperature:</li>
+						<li class="list-group-item border-0 text-end pe-0 temp">temp°</li>
+					</ul>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item border-0 flex-fill ps-0">Feels Like:</li>
+						<li class="list-group-item border-0 text-end pe-0 feelsLike">temp°</li>
+					</ul>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item flex-fill border-0 ps-0 highTemp">H: temp°</li>
+						<li class="list-group-item flex-fill border-0 text-end pe-0 lowTemp">L: temp°</li>
+					</ul>
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item flex-fill border-0 ps-0">Humidity:</li>
+						<li class="list-group-item border-0 text-end pe-0 humidity">percent%</li>
+					</ul>
 				</div>
 			</div>
 		</div>
