@@ -32,6 +32,25 @@
 
 	});
 
+	// add a marker to the map
+
+	const marker = new mapboxgl.Marker();
+
+	let addMarker = function (event) {
+		let coordinates = event.lngLat;
+		let formattedCoordinates = [];
+		formattedCoordinates = [coordinates.lng, coordinates.lat];
+		marker.setLngLat(coordinates).addTo(map);
+		// geocode the coordinates
+		dayData = []; // Reset dayData to an empty array
+		updateFiveDayWeatherData(formattedCoordinates);
+		updateEachDay(fiveDayWeatherData);
+		updateLocalWeatherData(formattedCoordinates);
+		updateCurrentDay(currentWeatherData);
+		map.setCenter(coordinates);
+		map.setZoom(13);
+	};
+	map.on('click', addMarker.bind(map));
 
 
 	//update html with five-day forecast
@@ -51,7 +70,7 @@
 			const dateFromUnix = new Date(unixTimestamp * 1000); // convert Unix timestamp to milliseconds and create dateFromUnix object
 			const dayOfWeek = dateFromUnix.toLocaleDateString('en-US', { weekday: 'long' }); // get day of the week as a string
 			element.querySelector(`img`).src = `https://openweathermap.org/img/w/${dayData[dayCards.indexOf(element)].weather[0].icon}.png`;
-			element.querySelector(`.day`).innerHTML = `${dayOfWeek}<br><small class="text-muted fst-italic fs-6">${cloudCover}</small><br><small class="text-muted fst-italic fs-6">${date}</small>`;
+			element.querySelector(`.day`).innerHTML = `${dayOfWeek}<br><small class="text-muted fst-italic fs-6">${cloudCover}</small><br><small class="text-muted fst-italic fs-6">${date.substring(0, (date.length - 3))}</small>`;
 			element.querySelector(`.temp`).innerHTML = `${Math.round(dayData[dayCards.indexOf(element)].main.temp)}°`;
 			element.querySelector(`.feelsLike`).innerHTML = `${Math.round(dayData[dayCards.indexOf(element)].main.feels_like)}°`;
 			element.querySelector(`.highTemp`).innerHTML = `H: ${Math.round(dayData[dayCards.indexOf(element)].main.temp_max)}°`;
@@ -75,27 +94,26 @@
 			let cloudCover = obj.weather[0].main;
 			let date = formatUnixTimestamp(obj.dt);
 			localWeather.querySelector(`img`).src = `https://openweathermap.org/img/w/${obj.weather[0].icon}.png`;
-			localWeather.querySelector(`.day`).innerHTML = `${obj.name}<br><small class="text-muted fst-italic fs-6">${cloudCover}</small><br><small class="text-muted fst-italic fs-6">${date}</small>`;
+			localWeather.querySelector(`.day`).innerHTML = `${obj.name}<br><small class="text-muted fst-italic fs-6">${cloudCover}</small><br><small class="text-muted fst-italic fs-6">${date.substring(0, (date.length - 3))}</small>`;
 			localWeather.querySelector(`.temp`).innerHTML = `${Math.round(obj.main.temp)}°`;
 			localWeather.querySelector(`.feelsLike`).innerHTML = `${Math.round(obj.main.feels_like)}°`;
 			localWeather.querySelector(`.highTemp`).innerHTML = `H: ${Math.round(obj.main.temp_max)}°`;
 			localWeather.querySelector(`.lowTemp`).innerHTML = `L: ${Math.round(obj.main.temp_min)}°`;
 			localWeather.querySelector(`.humidity`).innerHTML = `${obj.main.humidity}%`;
-			localWeather.querySelector(`.sunrise`).innerHTML = `${formatUnixTimestamp(obj.sys.sunrise).substring(formatUnixTimestamp(obj.sys.sunrise).indexOf(` `))}`;
-			localWeather.querySelector(`.sunset`).innerHTML = `${formatUnixTimestamp(obj.sys.sunset).substring(formatUnixTimestamp(obj.sys.sunset).indexOf(` `))}`;
+			localWeather.querySelector(`.sunrise`).innerHTML = `${formatUnixTimestamp(obj.sys.sunrise).substring(formatUnixTimestamp(obj.sys.sunrise).indexOf(` `), formatUnixTimestamp(obj.sys.sunrise).length - 3)}`;
+			localWeather.querySelector(`.sunset`).innerHTML = `${formatUnixTimestamp(obj.sys.sunset).substring(formatUnixTimestamp(obj.sys.sunset).indexOf(` `), formatUnixTimestamp(obj.sys.sunset).length - 3)}`;
 	};
 
 	let currentWeatherData = [];
 	const updateLocalWeatherData = async (arry = [-98.495141, 29.4246]) => {
 		const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${arry[1]}&lon=${arry[0]}&units=imperial&appid=${OPENWEATHER_API_TOKEN}`);
 		currentWeatherData = await response.json();
-		console.log(currentWeatherData);
 		await updateCurrentDay(currentWeatherData);
 	};
 
 	await updateLocalWeatherData();
 
-	// Update the five-day forecast based on search input
+	// Update the forecasts based on search input
 	searchButton.addEventListener(`click`,  async function(event){
 		event.preventDefault();
 		// geocode the search input
@@ -109,5 +127,6 @@
 		await updateEachDay(fiveDayWeatherData);
 		await updateLocalWeatherData(coords);
 		await updateCurrentDay(currentWeatherData);
+		marker.setLngLat(coords).addTo(map);
 	});
 })();
