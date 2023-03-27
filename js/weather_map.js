@@ -15,7 +15,7 @@
 	const map = new mapboxgl.Map({
 		container: 'map',
 		projection: `globe`,
-		style: 'mapbox://styles/mapbox/satellite-v9',
+		style: 'mapbox://styles/mapbox/satellite-streets-v12',
 		zoom: 1,
 		center: [-98.495141, 29.4246]
 	});
@@ -34,7 +34,9 @@
 
 	// add a marker to the map
 
-	const marker = new mapboxgl.Marker();
+	const marker = new mapboxgl.Marker({
+		draggable: true
+	});
 
 	let addMarker = function (event) {
 		let coordinates = event.lngLat;
@@ -47,10 +49,41 @@
 		updateEachDay(fiveDayWeatherData);
 		updateLocalWeatherData(formattedCoordinates);
 		updateCurrentDay(currentWeatherData);
-		map.setCenter(coordinates);
-		map.setZoom(13);
+		//Fly to the marker
+		map.flyTo({
+			center: coordinates,
+			zoom: 13,
+			speed: 0.8,
+			curve: 1,
+			easing: function (t) {
+				return t;
+			}
+		});
 	};
 	map.on('click', addMarker.bind(map));
+	//after dragging the marker, update the weather data
+	let dragMarker = function () {
+		let coordinates = marker.getLngLat();
+		let formattedCoordinates = [coordinates.lng, coordinates.lat];
+		// geocode the coordinates
+		dayData = []; // Reset dayData to an empty array
+		updateFiveDayWeatherData(formattedCoordinates);
+		updateEachDay(fiveDayWeatherData);
+		updateLocalWeatherData(formattedCoordinates);
+		updateCurrentDay(currentWeatherData);
+		//Fly to the marker
+		map.flyTo({
+			center: coordinates,
+			zoom: 13,
+			speed: 0.8,
+			curve: 1,
+			easing: function (t) {
+				return t;
+			}
+		});
+	};
+
+	marker.on('dragend', dragMarker);
 
 
 	//update html with five-day forecast
@@ -88,6 +121,7 @@
 	};
 
 	await updateFiveDayWeatherData()
+
 
 	// Update the local weather based on default coordinates
 	let updateCurrentDay = async (obj) => {

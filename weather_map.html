@@ -12,11 +12,11 @@
 	<link rel="stylesheet" href="css/weather_map.css">
 </head>
 <body>
-<div class="container g-0 mw-100">
+<div class="container bg-dark-subtle g-0 mw-100">
 <!--		The Navbar-->
 	<div class="row justify-content-between sticky-top">
 		<div class="col d-flex flex-column align-items-center">
-			<nav class="navbar bg-body-tertiary vw-100 p-3">
+			<nav class="navbar bg-secondary vw-100 p-3">
 				<h1 class="navbar-brand">Weather Map
 					<br>
 					<small class="text-muted fst-italic fs-6">"You like weather? We got weather. <br>You like maps? We got one map for you."</small>
@@ -28,8 +28,9 @@
 			</nav>
 		</div>
 	</div>
-<!--		The Current Weather and Map-->
+<!--		The Weather and Map-->
 	<div class="row flex-nowrap mw-100">
+<!--		Today's Weather-->
 		<div class="col-3" data-bs-theme="dark">
 			<div id="localWeather" class="card h-100" style="width: 100%;">
 				<img src="images/cloudy.png" class="card-img-top p-1" alt="...">
@@ -62,9 +63,12 @@
 				</div>
 			</div>
 		</div>
+<!--		5 day forecast and map-->
 		<div class="col-9">
 			<div class="row">
+<!--				Map-->
 				<div id='map' style='width: 100%; height: 400px;'></div>
+<!--				5 day forecast Weather-->
 				<div class="row flex-nowrap justify-content-between mw-100 p-0 m-0">
 					<div class="col-2 p-0" data-bs-theme="dark">
 						<div class="card day1" style="width: 100%;">
