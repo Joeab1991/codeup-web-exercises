@@ -23,7 +23,7 @@ const convertAddressToObject = (address) => {
 	};
 }
 
-console.log(convertAddressToObject(addr1))
+// console.log(convertAddressToObject(addr1))
 
 
 /** TODO
@@ -245,3 +245,30 @@ const lessThan50kMiles = (carObject) => {
 	return carObject.mileage < 50000;
 }
 
+// const aHundredNums = [9225, 6397, 97, 5062, 2149, 4656, 6551, 2145, 1073, 7963, 6279, 2873, 1820, 1468, 9611, 6431, 797,
+// 	3433, 5518, 4932, 7880, 6996, 5761, 6828, 6909, 9431, 4313, 2265, 7709, 5131, 2054, 8212, 9285, 7945, 612, 6055,
+// 	7189, 8539, 8201, 2209, 98, 9329, 4281, 441, 7230, 3582, 2502, 8432, 9749, 1267, 4111, 4289, 6793, 8238, 6892, 7665,
+// 	9252, 2065, 9817, 8868, 2133, 4519, 1916, 3035, 7547, 9217, 9438, 4473, 7162, 6652, 2540, 5290, 1502, 7302, 3917,
+// 	6100, 6211, 286, 8413, 8380, 5514, 5858, 7280, 3490, 3907, 1, 1428, 8825, 8339, 8809, 7713, 7770, 3873, 3474, 6775,
+// 	9126, 3081, 7613, 4017, 445];
+//
+// const total = aHundredNums.reduce((accumulator, currentValue) => {
+// 	console.log(`accumulator: ${accumulator}, currentValue: ${currentValue}`)
+// 	return accumulator + currentValue;
+// });
+//
+// console.log(total);
+//
+// const average = aHundredNums.reduce((accumulator, currentValue, index, array) => {
+// 	accumulator += currentValue;
+// 	if (index === array.length - 1) {
+// 		return accumulator / array.length;
+// 	} else {
+// 		return accumulator;
+// 	}
+// });
+
+const totalMileage = moreCars.reduce((accumulator, car) => {
+	return accumulator + car.mileage},
+	0
+);
