@@ -137,3 +137,16 @@
 .d-flex {
     display: flex;
 }
+.align-end {
+    align-items: end;
+}
+.text-end {
+    text-align: end;
+}
+.text-start {
+    text-align: start;
+}
+
+.vw-100 {
+    max-width: 100vw;
+}
